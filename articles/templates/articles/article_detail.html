@@ -1,0 +1,30 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+	<div class="article-detail">
+		<div class="article">
+			<img src="/blog{{ article.thumb.url }}"/>
+			<h2>{{ article.title }}</h2>
+			<p>{{ article.body }}</p>
+			<p>{{ article.date }}</p>
+			<div class="options">
+			<h2>Add a Comment</h2>
+			<form action="{% url 'articles:article_comment' slug=article.slug %}" method="POST">
+				{% csrf_token %}
+				<input type="text" name="title">
+				<input type="submit" value="Comment">
+			</form>
+			{% if article.num_comment != 0 %}
+				<h3>comments({{ article.num_comment }})</h3>
+				{% for comment in article.get_all_comment %}
+				<p>{{ comment.title }} - {{ comment.date }}</p>
+				{% endfor %}
+			{% endif %}
+			{% if user == article.author %}
+				<a class="option upd" href="{% url 'articles:update' slug=article.slug %}">Update</a>
+				<a class="option del" href="{% url 'articles:delete' slug=article.slug %}">Delete</a>
+			{% endif %}
+		    </div>	
+		</div>
+	</div>
+{% endblock %}

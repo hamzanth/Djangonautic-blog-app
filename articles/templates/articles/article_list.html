@@ -1,0 +1,15 @@
+{% extends "base_layout.html" %}
+
+{% block content %}
+<h1>article lists</h1>
+<div class="articles">
+	{% for article in articles %}
+		<div class="article">
+			<h2><a href="{% url 'articles:detail' slug=article.slug %}"> {{article.title}} </a> {% if article.num_comment != 0 %} {{ article.num_comment }}comments {% endif %}</h1>
+			<p>{{ article.snippet }}</p>
+			<p>{{ article.date }}</p>
+			<p class="author">added by {{ article.author.username }}</p>
+		</div>
+	{% endfor %}
+</div>
+{% endblock %}
