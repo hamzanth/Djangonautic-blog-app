@@ -3,7 +3,9 @@
 {% block content %}
 	<div class="article-detail">
 		<div class="article">
-			<img src="/blog{{ article.thumb.url }}"/>
+			<div style="text-align: center;">
+				<img src="{{ article.thumb.url }}"/>
+			</div>
 			<h2>{{ article.title }}</h2>
 			<p>{{ article.body }}</p>
 			<p>{{ article.date }}</p>

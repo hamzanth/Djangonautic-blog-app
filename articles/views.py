@@ -18,6 +18,7 @@ def article_detail(request, slug):
 	# return HttpResponse(slug)
 	# article = Articles.objects.get(slug=slug)
 	article = get_object_or_404(Articles, slug=slug)
+	print(article.thumb.url)
 	comments = article.comments.all()
 	context = {
 		"article": article,
