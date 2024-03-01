@@ -1,0 +1,14 @@
+{
+    "builds": [
+        {
+            "src": "djangonautic",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "djangonautic/wsgi.py"
+        }
+    ]
+}
