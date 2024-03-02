@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG", "Fale").lower() == "true"
 
 ALLOWED_HOSTS = [".vercel.app"]
-CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev"]
+# CSRF_TRUSTED_ORIGINS = ["https://*.fly.dev"]
 
 
 # Application definition
